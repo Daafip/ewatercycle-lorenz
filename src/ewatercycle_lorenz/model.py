@@ -7,6 +7,7 @@ from collections.abc import ItemsView
 from pathlib import Path
 from typing import Any, Type
 
+from ewatercycle.util import get_time
 from ewatercycle_lorenz.forcing import LorenzForcing # Use custom forcing instead
 from ewatercycle.base.model import ContainerizedModel, eWaterCycleModel
 from ewatercycle.container import ContainerImage
@@ -26,7 +27,7 @@ class LorenzMethods(eWaterCycleModel):
         "F": 1,
         "dt": 1,
         "J": 3,
-        "startState": [0,0,0]
+        "start_state": [0,0,0]
                     }
 
     def _make_cfg_file(self, **kwargs) -> Path:
@@ -34,6 +35,10 @@ class LorenzMethods(eWaterCycleModel):
 
         self._config["F"] = self.forcing.F
         self._config["dt"] = self.forcing.dt
+        self._config["start_time"] = 0
+        # relative
+        time_delta = get_time(self.forcing.end_time) - get_time(self.forcing.start_time)
+        self._config["end_time"] = time_delta.days + time_delta.seconds / (3600 * 24)
 
         for kwarg in kwargs:  # Write any kwargs to the config. - doesn't overwrite config?
             self._config[kwarg] = kwargs[kwarg]
@@ -97,5 +102,5 @@ class LorenzMethods(eWaterCycleModel):
 class Lorenz(ContainerizedModel, LorenzMethods):
     """The Lorenz eWaterCycle model, with the Container Registry docker image."""
     bmi_image: ContainerImage = ContainerImage(
-        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.1"
+        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.2"
     )
