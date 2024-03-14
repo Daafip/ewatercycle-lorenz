@@ -1,4 +1,4 @@
-# eWaterCycle plugin - HBV
+# eWaterCycle plugin - Lorenz
 
 <!-- [![Python package](https://github.com/Daafip/ewatercycle-hbv/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Daafip/ewatercycle-hbv/actions/workflows/test.yml) -->
 <!-- [![docs badge](https://readthedocs.org/projects/ewatercycle-hbv/badge/?version=latest)](https://ewatercycle-hbv.readthedocs.io/en/latest/index.html) -->
