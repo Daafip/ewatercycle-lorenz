@@ -102,5 +102,5 @@ class LorenzMethods(eWaterCycleModel):
 class Lorenz(ContainerizedModel, LorenzMethods):
     """The Lorenz eWaterCycle model, with the Container Registry docker image."""
     bmi_image: ContainerImage = ContainerImage(
-        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.2"
+        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.3"
     )
