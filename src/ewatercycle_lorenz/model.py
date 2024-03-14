@@ -26,7 +26,7 @@ class LorenzMethods(eWaterCycleModel):
     _config: dict = {
         "F": 1,
         "dt": 1,
-        "J": 3,
+        "J": 10,
         "start_state": [0,0,0]
                     }
 
@@ -102,5 +102,5 @@ class LorenzMethods(eWaterCycleModel):
 class Lorenz(ContainerizedModel, LorenzMethods):
     """The Lorenz eWaterCycle model, with the Container Registry docker image."""
     bmi_image: ContainerImage = ContainerImage(
-        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.4"
+        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.5"
     )
