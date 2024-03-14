@@ -31,9 +31,9 @@ dependencies = [
 
 # This registers the plugin such that it is discoverable by eWaterCycle
 [project.entry-points."ewatercycle.models"]
-HBV = "ewatercycle_lorenz.model:Lorenz"
+Lorenz = "ewatercycle_lorenz.model:Lorenz"
 [project.entry-points."ewatercycle.forcings"]
-HBVForcing = "ewatercycle_lorenz.forcing:LorenzForcing"
+LorenzForcing = "ewatercycle_lorenz.forcing:LorenzForcing"
 
 [project.urls]
 homepage = "https://github.com/Daafip/ewatercycle-lorenz"
