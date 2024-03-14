@@ -7,7 +7,6 @@ from collections.abc import ItemsView
 from pathlib import Path
 from typing import Any, Type
 
-from ewatercycle.base.forcing import GenericLumpedForcing # or later Use custom forcing instead?
 from ewatercycle_lorenz.forcing import LorenzForcing # Use custom forcing instead
 from ewatercycle.base.model import ContainerizedModel, eWaterCycleModel
 from ewatercycle.container import ContainerImage
@@ -95,7 +94,7 @@ class LorenzMethods(eWaterCycleModel):
         except FileNotFoundError:
             warnings.warn(message=f'Config folder not found at {self._cfg_dir.rmdir()}',category=UserWarning)
 
-class HBV(ContainerizedModel, LorenzMethods):
+class Lorenz(ContainerizedModel, LorenzMethods):
     """The Lorenz eWaterCycle model, with the Container Registry docker image."""
     bmi_image: ContainerImage = ContainerImage(
         "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.1"
