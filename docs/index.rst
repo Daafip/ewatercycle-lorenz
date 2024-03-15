@@ -10,7 +10,7 @@ Welcome to eWaterCycle-Lorenz's documentation!
 
 This package is based on the `Leaky
 bucket <https://github.com/eWaterCycle/ewatercycle-leakybucket/tree/main>`__
-& is a wrapper for the `HBV-bmi <https://github.com/Daafip/HBV-bmi>`__
+& is a wrapper for the `lorenz-bmi <https://github.com/Daafip/lorenz-bmi>`__
 model designed for the `eWaterCycle <https://ewatercycle.nl/>`_ platform. 
 
 Installation
@@ -37,6 +37,8 @@ guide <https://github.com/eWaterCycle/ewatercycle-leakybucket/blob/main/plugin_g
 
 Changelog
 ---------
+
+Changelog can be found `here <https://github.com/Daafip/ewatercycle-lorenz/blob/main/CHANGELOG.md>`__
 
 License
 -------

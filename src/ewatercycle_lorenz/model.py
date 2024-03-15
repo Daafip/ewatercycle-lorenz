@@ -1,11 +1,9 @@
 """eWaterCycle wrapper for the HBV model."""
 import json
-import os.path
-import numpy
 import warnings
 from collections.abc import ItemsView
 from pathlib import Path
-from typing import Any, Type
+from typing import Any
 
 from ewatercycle_lorenz.forcing import LorenzForcing # Use custom forcing instead
 from ewatercycle.base.model import ContainerizedModel, eWaterCycleModel
