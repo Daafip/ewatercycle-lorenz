@@ -54,6 +54,7 @@ same terms as the template: the
    :maxdepth: 2
    :caption: Contents:
 
+   model
    example_model_run_lorenz
    
 
