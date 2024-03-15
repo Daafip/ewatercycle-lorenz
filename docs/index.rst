@@ -7,11 +7,14 @@ Welcome to eWaterCycle-Lorenz's documentation!
 ===========================================
 
 
-
 This package is based on the `Leaky
 bucket <https://github.com/eWaterCycle/ewatercycle-leakybucket/tree/main>`__
 & is a wrapper for the `lorenz-bmi <https://github.com/Daafip/lorenz-bmi>`__
 model designed for the `eWaterCycle <https://ewatercycle.nl/>`_ platform. 
+
+The Lorenz-96 model as defined by Edward Lorenz (in 1996) is known for its chaotic behavior and thus often used in data assimilation.
+
+This is the main reason for implementation on a hydrology platform: to test data assimilation techniques.
 
 Installation
 ------------
@@ -50,7 +53,6 @@ same terms as the template: the
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
    example_model_run_lorenz
    
 
