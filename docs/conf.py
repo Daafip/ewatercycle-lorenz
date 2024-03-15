@@ -6,12 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'eWaterCycle-HBV'
+project = 'eWaterCycle-lorenz'
 copyright = '2024, David Haasnoot'
 author = 'David Haasnoot'
-
-version = "1.4"
-release = version
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
