@@ -7,7 +7,7 @@ path = "src/ewatercycle_lorenz/__init__.py"
 
 [project]
 name = "ewatercycle-lorenz"
-description = "Implementation of HBV for eWaterCycle"
+description = "Implementation of the lorenz-96 model for eWaterCycle"
 readme = "README.md"
 license = "Apache-2.0"
 version = "0.1.0"
