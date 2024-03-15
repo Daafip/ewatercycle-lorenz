@@ -7,7 +7,6 @@ from collections.abc import ItemsView
 from pathlib import Path
 from typing import Any, Type
 
-from ewatercycle.util import get_time
 from ewatercycle_lorenz.forcing import LorenzForcing # Use custom forcing instead
 from ewatercycle.base.model import ContainerizedModel, eWaterCycleModel
 from ewatercycle.container import ContainerImage
@@ -35,10 +34,8 @@ class LorenzMethods(eWaterCycleModel):
 
         self._config["F"] = self.forcing.F
         self._config["dt"] = self.forcing.dt
-        self._config["start_time"] = 0
-        # relative
-        time_delta = get_time(self.forcing.end_time) - get_time(self.forcing.start_time)
-        self._config["end_time"] = time_delta.days + time_delta.seconds / (3600 * 24)
+        self._config["start_time"] = self.forcing.start_time
+        self._config["end_time"] = self.forcing.end_time
 
         for kwarg in kwargs:  # Write any kwargs to the config. - doesn't overwrite config?
             self._config[kwarg] = kwargs[kwarg]
@@ -86,9 +83,9 @@ class LorenzMethods(eWaterCycleModel):
         self._bmi.finalize()
         del self._bmi
 
+        # remove config file
+        config_file = self._cfg_dir / "lorenz_config.json"
         try:
-            # remove config file
-            config_file = self._cfg_dir / "Lorenz_config.json"
             config_file.unlink()
         except FileNotFoundError:
             warnings.warn(message=f'Config not found at {config_file}, removed by user?',category=UserWarning)
@@ -97,10 +94,10 @@ class LorenzMethods(eWaterCycleModel):
             # once empty, remove it
             self._cfg_dir.rmdir()
         except FileNotFoundError:
-            warnings.warn(message=f'Config folder not found at {self._cfg_dir.rmdir()}',category=UserWarning)
+            warnings.warn(message=f'Config folder not found at {self._cfg_dir}',category=UserWarning)
 
 class Lorenz(ContainerizedModel, LorenzMethods):
     """The Lorenz eWaterCycle model, with the Container Registry docker image."""
     bmi_image: ContainerImage = ContainerImage(
-        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.7"
+        "ghcr.io/daafip/lorenz-grpc4bmi:v.0.0.8"
     )
