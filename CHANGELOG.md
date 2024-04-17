@@ -13,3 +13,5 @@ had minimal running product after 0.0.7
 - typo in get_start_time method
 ## V0.1.0
 - release!
+### V0.1.0
+- minor change: config removal is left to user on `finalize`
