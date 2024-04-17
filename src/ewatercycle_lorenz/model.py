@@ -9,8 +9,10 @@ from ewatercycle_lorenz.forcing import LorenzForcing # Use custom forcing instea
 from ewatercycle.base.model import ContainerizedModel, eWaterCycleModel
 from ewatercycle.container import ContainerImage
 
-LORENZ_PARAMS = ("J")
-LORENZ_STATES = ("startState")
+LORENZ_PARAMS = ["J"]
+LORENZ_STATES = ["start_state"]
+
+
 class LorenzMethods(eWaterCycleModel):
     """
     The eWatercycle HBV model.
@@ -81,18 +83,6 @@ class LorenzMethods(eWaterCycleModel):
         self._bmi.finalize()
         del self._bmi
 
-        # remove config file
-        config_file = self._cfg_dir / "lorenz_config.json"
-        try:
-            config_file.unlink()
-        except FileNotFoundError:
-            warnings.warn(message=f'Config not found at {config_file}, removed by user?',category=UserWarning)
-
-        try:
-            # once empty, remove it
-            self._cfg_dir.rmdir()
-        except FileNotFoundError:
-            warnings.warn(message=f'Config folder not found at {self._cfg_dir}',category=UserWarning)
 
 class Lorenz(ContainerizedModel, LorenzMethods):
     """The Lorenz eWaterCycle model, with the Container Registry docker image."""
